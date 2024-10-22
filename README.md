@@ -127,6 +127,7 @@ const App = () => {
         onImageExpand={({ visible }) => console.log(visible)}
         animatedImageDelay={60}
         modalBackgroundStyle={styles.modalBackgroundStyle}
+        onImageSelection={( selectedItem ) => console.log(selectedItem)}
       />
     </SafeAreaView>
   );
@@ -159,7 +160,9 @@ const styles = StyleSheet.create({
 | thumbnailListImageWidth      |    120    |                  number                  | Width of thumbnail list image                                                                          |
 | thumbnailListImageSpace      |    10     |                  number                  | Space between thumbnail list images                                                                    |
 | renderHeader                 |     -     |                 function                 | Custom header content instead of default child content and it provide `close()` as an argument         |
-| onImageExpand                |     -     |                 function                 | Function to call when image expanded and it provide `{visible}` as an argument                         |
+| onImageExpand                |     -     |                 function                 | Function to call when image expanded and it provide `{visible}` as an argument                        |
+| onImageSelection             |     -     |                 function                 | Function to call when image is selected. Will be provided the selection as an argument
+  |
 | renderNetworkLoader          |     -     |                 function                 | Custom network loader instead of default loader                                                        |
 | flatListProps                |     -     | FlatListProps<[ArrayData](#sample-data)> | Provide <a href="https://reactnative.dev/docs/flatlist#props">flatlist props</a>                       |
 | listItemProps                |     -     |     [ListItemProps](#listitemprops)      | List item props contain `containerStyle`, `imageContainerStyle` and `imageProps`                       |
