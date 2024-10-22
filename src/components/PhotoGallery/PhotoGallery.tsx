@@ -45,12 +45,9 @@ const PhotoGallery = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useMemo(() => onImageExpand && onImageExpand({ visible }), [visible]);
   useMemo(() => {
-    if (onImageSelection) {
-      const isInvalidItem =
-        selectedItem.id === 0 && selectedItem.source === 0;
-
-      onImageSelection({ selectedItem: isInvalidItem ? null : selectedItem });
-    }
+    const isInvalidItem =
+        (selectedItem.id === 0 && selectedItem.source === 0);
+    {onImageSelection && !isInvalidItem && onImageSelection(selectedItem)}
   }, [selectedItem]);
   const { containerStyle, imageContainerStyle, imageProps } = listItemProps;
 
