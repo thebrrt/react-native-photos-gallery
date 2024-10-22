@@ -49,6 +49,7 @@ export interface PhotoGalleryProps
   >;
   modalContentImageProps?: AnimateProps<ImageProps>;
   onImageExpand?: ({ visible }: Pick<PhotosModalProps, 'visible'>) => void;
+  onImageSelection?: ({ selectedItem }: Pick<PhotosModalProps, 'selectedItem'>) => void;
   modalProps?: Omit<ModalProps, 'visible'>;
 }
 

@@ -18,6 +18,7 @@ const PhotoGallery = ({
   thumbnailListImageSpace = Constants.thumbnailListImageSpace,
   renderHeader,
   onImageExpand,
+  onImageSelection,
   flatListProps,
   listItemProps = {},
   modalProps,
@@ -43,6 +44,14 @@ const PhotoGallery = ({
   } = usePhotoGallery({ animationCloseSpeed });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useMemo(() => onImageExpand && onImageExpand({ visible }), [visible]);
+  useMemo(() => {
+    if (onImageSelection) {
+      const isInvalidItem =
+        selectedItem.id === 0 && selectedItem.source === 0;
+
+      onImageSelection({ selectedItem: isInvalidItem ? null : selectedItem });
+    }
+  }, [selectedItem]);
   const { containerStyle, imageContainerStyle, imageProps } = listItemProps;
 
   return (
